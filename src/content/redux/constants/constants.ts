@@ -1,0 +1,22 @@
+export const GET_MOVIES = "GET_MOVIES";
+export const API_KEY = "3a1c0d290e53001f07de1f57d2cd42ce";
+export const URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
+export const GET_MOVIES_RATED = "GET_MOVIES_RATED";
+export const URL_API_RATED = `http://api.themoviedb.org/3/discover/movie?certification_country=US&certification=R&sort_by=vote_average.desc&api_key=${API_KEY}`;
+export const FILTER_MOVIE = "FILTER_MOVIE";
+export const FAVORITE_MOVIE = "FAVORITE_MOVIE";
+export const URL_SEARCH_MOVIE = `https://api.themoviedb.org/3/search/movie?query`;
+export const NO_FAVORITE = "NO_FAVORITE";
+export const FIND_FAVORITE = "FIND_FAVORITE";
+export const DELETE_FAVORITE = "DELETE_FAVORITE";
+export const SAVE_MOVIE = "SAVE_MOVIE";
+export const TOGGLE_MODAL = "TOGGLE_MODAL";
+export const SAVE_DATA_INPUT = "SAVE_DATA_INPUT";
+export const LIST_FAILED = "LIST_FAILED";
+export const LIST_MOVIE = "LIST_MOVIE";
+export const LIST_MOVIE_RAITED = "LIST_MOVIE_RAITED";
+export const SAVE_DATA_FILTER_MOVIE = "SAVE_DATA_FILTER_MOVIE";
+export const SAVE_FAVORITE_MOVIE = "SAVE_FAVORITE_MOVIE";
+export const DELETE_MOVIE = "DELETE_MOVIE";
+export const ADD_MOVIE_FAVORITE = "ADD_MOVIE_FAVORITE";
+

@@ -14,7 +14,7 @@ export const addMovieFavorite = (data: any) => {
   };
 };
 
-export const arrayFavorite = (array: any, favorite: Array<any>): boolean => {
+export const arrayFavorite = (array: any, favorite:any): boolean => {
   for (const iterator of favorite) {
     if (iterator.id === array.data.id) {
       return true;
@@ -23,28 +23,28 @@ export const arrayFavorite = (array: any, favorite: Array<any>): boolean => {
   return false;
 };
 
-export const deleteMovie = (id: number) => (dispatch: any) => {
-  dispatch({
+export const deleteMovie = (id:any)  => {
+  return{
     type: actionTypes.DELETE_FAVORITE,
     payload: id,
-  });
+  };
 };
 
-export const deleteMovieFavorite = (id: number) => {
+export const deleteMovieFavorite = (id:any) => {
   return {
     type: actionTypes.DELETE_MOVIE,
     id,
   };
 };
 
-export const saveMovieFavorite = (movie: any) => (dispatch: any) => {
-  dispatch({
+export const saveMovieFavorite = (movie: any) => {
+ return {
     type: actionTypes.SAVE_MOVIE,
     payload: movie,
-  });
+  };
 };
 
-export const movieFavorite = (mov: object) => {
+export const movieFavorite = (mov:any) => {
   return {
     type: actionTypes.SAVE_FAVORITE_MOVIE,
     mov,

@@ -4,7 +4,7 @@ import rootReducer from './content/redux/reducers/index';
 import {save, load} from 'redux-localstorage-simple';
 import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import createSagaMiddleware from 'redux-saga';
-
+import rootSaga from './content/redux/redux-saga/rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 const initialData= save(
@@ -29,5 +29,5 @@ const initialData= save(
            ]     
        }) 
    )  
-  //  sagaMiddleware.run(rootSaga)
+   sagaMiddleware.run(rootSaga)
   export default store;

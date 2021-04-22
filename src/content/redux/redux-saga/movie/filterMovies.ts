@@ -6,8 +6,8 @@ import {
 } from "../../../helpers/requests";
 import { saveDataFilter } from '../../actions/filterData'
 
-function* searchMovies(name:any):Generator<any> {
-  
+function* searchMovies(name: any): Generator<any> {
+
   try {
     let query = "";
     if (name.name === "") {
@@ -26,6 +26,7 @@ function* searchMovies(name:any):Generator<any> {
     console.log("ERROR_BUSCAR", error);
   }
 }
+
 
 export function* searchMoviesWatcher():Generator<any> {
   yield takeLatest(actionTypes.FILTER_MOVIE, searchMovies);

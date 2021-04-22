@@ -1,14 +1,7 @@
 import * as actionType from "../constants/constants";
+import {Imovie} from '../interfaces/interfaces'
 
-interface IinitialState {
-  favorite: Array<any>,
-  noFavorite:Array<any>,
-  saveFavorite: null,
-  modal:boolean,
-  inputValue:string,
-};
-
-const initialState: IinitialState = {
+const initialState: Imovie = {
   favorite:[],
   noFavorite:[],
   saveFavorite: null,
@@ -16,7 +9,7 @@ const initialState: IinitialState = {
   inputValue:"",
 }
 
-export const movieFavorites = (state:IinitialState=initialState, action:any):IinitialState => {
+export const movieFavorites = (state:Imovie=initialState, action:any):Imovie => {
   switch (action.type) {
     case actionType.FAVORITE_MOVIE:
       console.log("ACYION_MOVIE", action.payload)
@@ -36,7 +29,7 @@ export const movieFavorites = (state:IinitialState=initialState, action:any):Iin
       return { ...state, modal: !state.modal };
 
     case actionType.SAVE_DATA_INPUT:
-      console.log("INPUT_VALUE", action.payload)
+    
       return{ ...state, inputValue:action.payload}
       
     default:

@@ -1,13 +1,7 @@
 import * as actionType from "../constants/constants";
+import {IgetMovie, MoviesTypes} from '../interfaces/interfaces'
 
-interface IinitialState {
-  movies: Array<any>;
-  moviesRated: Array<any>;
-  filterMovie: Array<any>;
-  filterByMovie: string;
-  state: string;
-}
-const initialState: IinitialState = {
+const initialState: IgetMovie = {
   movies: [],
   moviesRated: [],
   filterMovie: [],
@@ -15,10 +9,7 @@ const initialState: IinitialState = {
   state: "",
 };
 
-export const movieReducer = (
-  state: IinitialState = initialState,
-  action: any
-): IinitialState => {
+export const movieReducer = ( state: IgetMovie = initialState, action:any): IgetMovie => {
   switch (action.type) {
     case actionType.LIST_MOVIE: {
       return {

@@ -4,23 +4,24 @@ import {
   sendHttpRequest,
   fixedEncodeURIComponent,
 } from "../../../helpers/requests";
-import { saveDataFilter } from '../../actions/filterData'
+
+import { filterData } from '../../../redux-toolkit/movieReducer';
 
 function* searchMovies(name: any): Generator<any> {
-
+  
   try {
     let query = "";
-    if (name.name === "") {
+    if (name.data === "") {
       query = "?";
     } else {
-      query = name.name;
+      query = name.data;
     }
     let url = `${actionTypes.URL_SEARCH_MOVIE}=${fixedEncodeURIComponent(
       query
     )}&api_key=${actionTypes.API_KEY}`;
     const data = yield call(sendHttpRequest, url);
-   
-      yield put(saveDataFilter(name, data));
+     
+     yield put(filterData({ data: data, name: name.data }));
     
   } catch (error) {
     console.log("ERROR_BUSCAR", error);

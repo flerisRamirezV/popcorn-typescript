@@ -3,14 +3,14 @@ import * as actionTypes from "../../constants/constants";
 import { sendHttpRequest } from "../../../helpers/requests";
 import { delay } from "../../../helpers/events";
 import { getListData } from "../../actions/getMovies";
-
+import {getMovie} from '../../../redux-toolkit/movieReducer'
 
 
 function* tryMovieList():Generator<any> {
   try {
     yield call(delay, 2000);
     const data = yield call(sendHttpRequest, actionTypes.URL);
-    yield put(getListData(actionTypes.LIST_MOVIE,data));
+    yield put(getMovie(data));
   } catch (error) {
     console.log(error);
   }

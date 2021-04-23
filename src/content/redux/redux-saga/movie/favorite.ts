@@ -4,10 +4,10 @@ import * as actionTypes from "../../constants/constants";
 import {
   saveMovieFavorite,
   deleteMovie,
-  addMovieFavorite,
+  // addMovieFavorite,
   arrayFavorite,
 } from "../../actions/favorite";
-
+import { addMovieFavorite } from '../../../redux-toolkit/movieFavorite';
 
 function* saveFavoriteMovie(data:any):Generator<any> {
   try {

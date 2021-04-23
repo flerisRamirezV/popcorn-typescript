@@ -5,9 +5,10 @@ import { typeMovieReducer } from "../redux/interfaces/interfaces";
 
 type AppProps = {
   handleDetail?: any;
+  addMovieFavorite: any;
 };
 
-export default function Detail({ handleDetail }: AppProps) {
+export default function Detail({ handleDetail, addMovieFavorite }: AppProps) {
   const detailMovie = useSelector(
     (state: any) => state.movieFavorites.saveFavorite
   );
@@ -45,7 +46,7 @@ export default function Detail({ handleDetail }: AppProps) {
           <div className="d-flex justify-content-end">
             <button
               className="button"
-              // onClick={() => props.addMovieFavorite(detailMovie)}
+               onClick={() =>addMovieFavorite(detailMovie)}
             >
               <i className="fas fa-heart favorite__icon"></i>
             </button>

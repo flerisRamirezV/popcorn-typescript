@@ -7,6 +7,7 @@ const initialState: IgetMovie = {
   filterMovie: [],
   filterByMovie: "",
   state: "",
+ 
 };
 
 export const movieReducer = ( state: IgetMovie = initialState, action:any): IgetMovie => {

@@ -9,6 +9,7 @@ import * as constants from "../redux/constants/constants"
 import {toogleModal,saveMovieFavorite} from '../redux-toolkit/movieFavorite'
 import Detail from "../components/Detail";
 import { addFavorite } from '../redux/actions/favorite';
+import MyFavoriteMovie from "../components/MyFavoriteMovie";
 
 export default function PopCorn() {
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ export default function PopCorn() {
       <section className="container__input-movie">
          <InputMovie /> 
       </section>
+      <MyFavoriteMovie/>
       <TitleMovies title="Popular Movies" />
       <section className="container__overflow">
         {movieList.length > 0 &&

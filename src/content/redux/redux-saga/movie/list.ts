@@ -2,8 +2,7 @@ import { call, put, all, takeLatest } from "redux-saga/effects";
 import * as actionTypes from "../../constants/constants";
 import { sendHttpRequest } from "../../../helpers/requests";
 import { delay } from "../../../helpers/events";
-import { getListData } from "../../actions/getMovies";
-import {getMovie} from '../../../redux-toolkit/movieReducer'
+import {getMovie,getListData} from '../../../redux-toolkit/movieReducer'
 
 
 function* tryMovieList():Generator<any> {
@@ -21,7 +20,7 @@ function* tryMovieListRated():Generator<any> {
     yield call(delay, 2000);
     const data = yield call(sendHttpRequest, actionTypes.URL_API_RATED);
 
-    yield put(getListData(actionTypes.LIST_MOVIE_RAITED, data));
+    yield put(getListData(data));
   } catch (error) {
     console.log(error);
   }

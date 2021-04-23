@@ -2,14 +2,17 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import InputMovie from "../components/InputMovie";
 import Movies from "../components/movies";
-import { toogleModal } from "../helpers/events";
-import { movieFavorite } from "../redux/actions/favorite";
+
 import TitleMovies from "../components/TitleMovies";
 import { typeMovieReducer } from "../redux/interfaces/interfaces";
 import * as constants from "../redux/constants/constants"
+import {toogleModal,saveMovieFavorite} from '../redux-toolkit/movieFavorite'
+import Detail from "../components/Detail";
+
+
 export default function PopCorn() {
   const dispatch = useDispatch();
-  // const modal = useSelector((state: typeMovieReducer) => state.movieFavorites.modal);
+  const modal = useSelector((state: typeMovieReducer) => state.movieFavorites.modal);
   const movieRated = useSelector(
     (state: typeMovieReducer) => state.movieReducer.moviesRated
   );
@@ -24,8 +27,8 @@ export default function PopCorn() {
   });
 
   const handleDetail = (mov: any) => {
-    // dispatch(toogleModal(!modal:boolean));
-    dispatch(movieFavorite(mov));
+    dispatch(toogleModal());
+    dispatch(saveMovieFavorite(mov));
   };
 
   return (
@@ -55,6 +58,10 @@ export default function PopCorn() {
             />
           ))}
       </section>
+      {
+        modal && <Detail
+          handleDetail={(movie: any) => handleDetail(movie)} />
+      }
     </main>
   );
 }

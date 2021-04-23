@@ -17,15 +17,24 @@ export const movieFavoriteSlice = createSlice({
       state.inputValue = action.payload;
     },
     saveMovieFavorite: (state, action) => {
-      state.saveFavorite=action.payload
+      state.saveFavorite = action.payload;
     },
     toogleModal: (state) => {
-      state.modal=!state.modal
-    }
+      state.modal = !state.modal;
+    },
+    addMovieFavorite: (state, action) => {
+     
+      state.favorite = [...state.favorite, action.payload];
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { getSaveDataInput,saveMovieFavorite,toogleModal } = movieFavoriteSlice.actions;
+export const {
+  getSaveDataInput,
+  saveMovieFavorite,
+  toogleModal,
+  addMovieFavorite,
+} = movieFavoriteSlice.actions;
 
 export default movieFavoriteSlice.reducer;

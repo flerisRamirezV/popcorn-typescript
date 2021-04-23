@@ -4,11 +4,11 @@ import InputMovie from "../components/InputMovie";
 import Movies from "../components/movies";
 
 import TitleMovies from "../components/TitleMovies";
-import { typeMovieReducer } from "../redux/interfaces/interfaces";
+import { typeMovieReducer, typeMovieFavorite } from "../redux/interfaces/interfaces";
 import * as constants from "../redux/constants/constants"
 import {toogleModal,saveMovieFavorite} from '../redux-toolkit/movieFavorite'
 import Detail from "../components/Detail";
-
+import { addFavorite } from '../redux/actions/favorite';
 
 export default function PopCorn() {
   const dispatch = useDispatch();
@@ -30,7 +30,12 @@ export default function PopCorn() {
     dispatch(toogleModal());
     dispatch(saveMovieFavorite(mov));
   };
-
+  const addMovieFavorite = (mov:any) => {
+    dispatch(addFavorite(mov));
+    setTimeout(() => {
+     dispatch(toogleModal()) ;
+    }, 1000);
+   }
   return (
     <main className="container">
       <section className="container__input-movie">
@@ -60,7 +65,9 @@ export default function PopCorn() {
       </section>
       {
         modal && <Detail
-          handleDetail={(movie: any) => handleDetail(movie)} />
+          handleDetail={(movie:typeMovieFavorite) => handleDetail(movie)}
+          addMovieFavorite={(mov:typeMovieFavorite) => addMovieFavorite(mov)}
+        />
       }
     </main>
   );

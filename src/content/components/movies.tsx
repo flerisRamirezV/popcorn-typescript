@@ -1,9 +1,5 @@
 import React from "react";
-type AppProps = {
-  backdrop_path: string;
-  handleDetail: any;
-  poster_path: string;
-};
+import { AppProps } from '../redux/interfaces/interfaces';
 export default function Movies({
   backdrop_path,
   handleDetail,

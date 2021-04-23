@@ -20,6 +20,12 @@ export interface IgetMovie {
   state: string;
 };
 
+export type AppProps = {
+  backdrop_path: string;
+  handleDetail?: any;
+  poster_path: string;
+};
+
 export interface IListMovie{
   type: typeof constant.LIST_MOVIE
 }

@@ -41,6 +41,7 @@ export type typeMovieFavorite = {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
+  handleDelete?: any;
 };
 
 export interface IListMovie {

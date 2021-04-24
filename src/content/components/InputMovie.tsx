@@ -9,7 +9,7 @@ export default function InputMovie() {
   const inputValue = useSelector((state:typeMovieReducer) => state.movieFavorites.inputValue)
   const dispatch = useDispatch();
 
-  const filterByName = (e:FormElemnt):any => {
+  const filterByName = (e:FormElemnt):void => {
      dispatch(getSaveDataInput(e.target.value))
    
     setTimeout(()=>{

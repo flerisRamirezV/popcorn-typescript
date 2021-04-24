@@ -12,7 +12,7 @@ export default function Detail({ handleDetail, addMovieFavorite }: AppProps) {
   const detailMovie = useSelector(
     (state: any) => state.movieFavorites.saveFavorite
   );
-  console.log("DETAIL", detailMovie)
+  
   return (
     <div className="content_modal">
       <div className="modal__movie">

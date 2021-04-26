@@ -43,8 +43,7 @@ export const movieSlice = createSlice({
       }
       state.filterMovie = listFiltered;
       state.movies=list
-    },
-   
+    }
   }
 });
 

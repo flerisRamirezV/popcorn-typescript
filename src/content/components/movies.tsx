@@ -1,10 +1,10 @@
 import React from "react";
-import { AppProps } from '../redux/interfaces/interfaces';
+import {typeMovieFavorite } from '../redux/interfaces/interfaces';
 export default function Movies({
   backdrop_path,
   handleDetail,
   poster_path,
-}: AppProps) {
+}: typeMovieFavorite) {
   return (
     <div className="container__image">
       <img

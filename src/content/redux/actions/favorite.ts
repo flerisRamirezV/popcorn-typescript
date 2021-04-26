@@ -1,5 +1,5 @@
 import * as actionTypes from "../constants/constants";
-import {AppProps,typeMovieFavorite, } from '../interfaces/interfaces'
+import {typeMovieFavorite, } from '../interfaces/interfaces'
 export const addFavorite = (data:typeMovieFavorite) => {
   return {
     type: actionTypes.ADD_MOVIE_FAVORITE,

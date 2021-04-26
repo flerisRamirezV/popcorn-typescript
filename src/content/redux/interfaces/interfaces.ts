@@ -1,5 +1,7 @@
 import * as constant from "../constants/constants";
-import {RootState } from '../../../configureStore'
+import { RootState } from '../../../configureStore'
+
+
 export type typeMovieReducer = RootState;
 export type FormElemnt = React.ChangeEvent<HTMLInputElement>;
 
@@ -19,25 +21,6 @@ export interface IgetMovie {
   state: string;
 }
 
-export type AppProps = {
-  id?: number;
-  backdrop_path: string;
-  handleDetail?: any;
-  adult?: boolean;
-  genre_ids?: Array<number>;
-  original_language: string;
-  original_title?: string;
-  overview?: string;
-  popularity?: number;
-  poster_path?: string;
-  release_date?: string;
-  title: string;
-  video?: boolean;
-  vote_average?: number;
-  vote_count?: number;
-  handleDelete?: any;
-};
-
 export type typeMovieFavorite = {
   adult?: boolean;
   backdrop_path?: string;
@@ -54,6 +37,7 @@ export type typeMovieFavorite = {
   vote_average?: number;
   vote_count?: number;
   handleDelete?: any;
+  handleDetail?: any;
 };
 
 export interface IListMovie {

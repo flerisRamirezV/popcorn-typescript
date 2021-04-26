@@ -6,7 +6,7 @@ import {
 } from "../../../helpers/requests";
 
 import { filterData } from '../../../redux-toolkit/movieReducer';
-import { AppProps, ISearchData,ActionSearch } from '../../interfaces/interfaces'
+import { ISearchData,ActionSearch } from '../../interfaces/interfaces'
 
 function* searchMovies(name: ISearchData): Generator<any> {
   try {

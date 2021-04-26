@@ -40,6 +40,10 @@ export type typeMovieFavorite = {
   handleDetail?: any;
 };
 
+export interface Imovie{
+  results?:Array<typeMovieFavorite>
+}
+
 export interface IListMovie {
   type: typeof constant.LIST_MOVIE;
 }

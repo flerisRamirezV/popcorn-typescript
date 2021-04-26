@@ -1,5 +1,5 @@
 import * as actionTypes from "../constants/constants";
-import {AppProps,typeMovieFavorite} from '../interfaces/interfaces'
+import {AppProps,typeMovieFavorite, } from '../interfaces/interfaces'
 export const addFavorite = (data:typeMovieFavorite) => {
   return {
     type: actionTypes.ADD_MOVIE_FAVORITE,
@@ -14,7 +14,7 @@ export const addMovieFavorite = (data: any) => {
   };
 };
 
-export const arrayFavorite = (array: any, favorite:any): boolean => {
+export const arrayFavorite = (array: any, favorite:any):boolean => {
   for (const iterator of favorite) {
     if (iterator.id === array.data.id) {
       return true;

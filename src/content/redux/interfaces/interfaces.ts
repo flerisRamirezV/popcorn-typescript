@@ -57,12 +57,6 @@ export type typeMovieFavorite = {
   handleDelete?: any;
 };
 
-
-export interface TaskAction extends typeMovieReducer, typeMovieFavorite {
-  type: typeof constant.ADD_MOVIE_FAVORITE;
-  data: typeMovieFavorite;
-}
-
 export interface IListMovie {
   type: typeof constant.LIST_MOVIE;
 }
@@ -79,8 +73,29 @@ export interface ISaveData {
   type: typeof constant.SAVE_DATA_FILTER_MOVIE;
 }
 
+export interface IdeleteData {
+  type: typeof constant.DELETE_MOVIE;
+}
+
+export interface IsaveFavorite {
+  type: typeof constant.ADD_MOVIE_FAVORITE;
+}
+
+export interface IaddFavorite {
+  type: typeof constant.ADD_MOVIE_FAVORITE;
+}
+
 export type MoviesTypes =
   | IListMovie
   | IGetmovies
   | IListMovieRatied
-  | ISaveData;
+  | ISaveData
+  | IdeleteData
+  | IsaveFavorite
+  | IaddFavorite;
+
+export interface TaskActionFavorite extends typeMovieReducer, typeMovieFavorite {
+  type: MoviesTypes;
+  data: typeMovieFavorite;
+  id?: number;
+}

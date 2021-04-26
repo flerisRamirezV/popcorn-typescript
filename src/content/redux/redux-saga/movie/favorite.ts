@@ -8,7 +8,7 @@ import {
   arrayFavorite,
 } from "../../actions/favorite";
 import { addMovieFavorite, deleteFavorite } from '../../../redux-toolkit/movieFavorite';
-import {typeMovieFavorite,typeMovieReducer} from '../../interfaces/interfaces'
+import {typeMovieFavorite,typeMovieReducer,AppProps,TaskAction} from '../../interfaces/interfaces'
 function* saveFavoriteMovie(data: any): Generator<any> {
  
   try {
@@ -26,7 +26,7 @@ function* deleteMovieFavorite(data:any): Generator<any> {
   }
 }
 
-function* addMoviesFavorite(movie:any): Generator<any> {
+function* addMoviesFavorite(movie:typeMovieFavorite): Generator<any> {
   console.log("DATA_SAVE",movie)
   try {
     const favorite = (movies:typeMovieReducer) => movies.movieFavorites.favorite;
@@ -44,6 +44,6 @@ export function* movieFavoriteWatcher():Generator<any> {
   yield all([
     yield takeLatest(actionTypes.SAVE_FAVORITE_MOVIE, saveFavoriteMovie),
      yield takeLatest(actionTypes.DELETE_MOVIE, deleteMovieFavorite),
-    yield takeLatest(actionTypes.ADD_MOVIE_FAVORITE, addMoviesFavorite),
+    yield takeLatest<TaskAction>(actionTypes.ADD_MOVIE_FAVORITE, addMoviesFavorite),
   ]);
 }

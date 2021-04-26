@@ -4,7 +4,7 @@ import InputMovie from "../components/InputMovie";
 import Movies from "../components/movies";
 
 import TitleMovies from "../components/TitleMovies";
-import { typeMovieReducer, typeMovieFavorite, AppProps } from "../redux/interfaces/interfaces";
+import { typeMovieReducer,  typeMovieFavorite } from "../redux/interfaces/interfaces";
 import * as constants from "../redux/constants/constants"
 import {toogleModal,saveMovieFavorite} from '../redux-toolkit/movieFavorite'
 import Detail from "../components/Detail";
@@ -50,7 +50,7 @@ export default function PopCorn(): JSX.Element {
       <TitleMovies title="Popular Movies" />
       <section className="container__overflow">
         {movieList.length > 0 &&
-          movieList.map((movie: AppProps):JSX.Element => {
+          movieList.map((movie:typeMovieFavorite):JSX.Element => {
             return (
               <Movies
               key={movie.id}
@@ -66,7 +66,7 @@ export default function PopCorn(): JSX.Element {
       <TitleMovies title="Top Rated" />
       <section className="container__overflow">
         {movieRated.length > 0 &&
-          movieRated.map((movie:any): JSX.Element=> (
+          movieRated.map((movie:typeMovieFavorite): JSX.Element=> (
             <Movies
               key={movie.id}
               {...movie}

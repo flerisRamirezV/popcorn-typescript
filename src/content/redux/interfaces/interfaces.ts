@@ -5,7 +5,7 @@ export type typeMovieReducer = ReturnType<typeof RootReducer>;
 export type FormElemnt = React.ChangeEvent<HTMLInputElement>;
 
 export interface Imovie {
-  favorite: Array<any>| any;
+  favorite: Array<any> | any;
   noFavorite: Array<any>;
   saveFavorite: null;
   modal: boolean;
@@ -43,7 +43,7 @@ export type typeMovieFavorite = {
   adult?: boolean;
   backdrop_path?: string;
   genre_ids?: Array<number>;
-  id?: number|null;
+  id?: number | null;
   original_language: string;
   original_title?: string;
   overview?: string;
@@ -56,6 +56,12 @@ export type typeMovieFavorite = {
   vote_count?: number;
   handleDelete?: any;
 };
+
+
+export interface TaskAction extends typeMovieReducer, typeMovieFavorite {
+  type: typeof constant.ADD_MOVIE_FAVORITE;
+  data: typeMovieFavorite;
+}
 
 export interface IListMovie {
   type: typeof constant.LIST_MOVIE;

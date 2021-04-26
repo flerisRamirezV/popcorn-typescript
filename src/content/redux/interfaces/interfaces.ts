@@ -41,7 +41,8 @@ export type typeMovieFavorite = {
 };
 
 export interface Imovie{
-  results?:Array<typeMovieFavorite>
+  results?: Array<typeMovieFavorite>;
+  name?:string
 }
 
 export interface IListMovie {

@@ -4,17 +4,12 @@ import { typeMovieReducer,typeMovieFavorite } from "../redux/interfaces/interfac
 import "../styles/favorite.css";
 import Favorite from "./favorite";
 
-export default function MyFavoriteMovie(props: any) {
+export default function MyFavoriteMovie({ handleDelete }:any) {
  
   const favorite = useSelector(
     (state: typeMovieReducer) => state.movieFavorites.favorite
   );
 
-  //  useEffect(() => {
-  //   localStorage.setItem("favorites", JSON.stringify(favorite));
-    
-  // }, [favorite])
-  const dispatch = useDispatch();
   return (
     <div className="favorite">
       <h2 className="favorite__title">My favorites</ h2>
@@ -27,7 +22,7 @@ export default function MyFavoriteMovie(props: any) {
           <Favorite
             key={fav.id}
             {...fav}
-            handleDelete={() => props.handleDelete(fav.id)}
+            handleDelete={() => handleDelete(fav.id)}
           />
         ))}
       </section>

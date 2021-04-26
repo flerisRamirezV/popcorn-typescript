@@ -3,12 +3,23 @@ import rootSaga from "./content/redux/redux-saga/rootSaga";
 import createSagaMiddleware from "redux-saga";
 import movieSlice from "./content/redux-toolkit/movieReducer";
 import movieFavoriteSlice from "./content/redux-toolkit/movieFavorite";
-
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
 import {
   loadState,
   saveState,
 } from "./content/redux-toolkit/actions/localStoraje";
 import throttle from "lodash/throttle";
+
+import {TaskActionFavorite} from './content/redux/interfaces/interfaces'
 const sagaMiddleware = createSagaMiddleware();
 
  const persistedState = loadState();
@@ -18,7 +29,10 @@ const sagaMiddleware = createSagaMiddleware();
 const middleware = [
   ...getDefaultMiddleware({
     thunk: false,
-    serializableCheck: false,
+    // serializableCheck: false,
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
     persistedState,
   }),
   sagaMiddleware,
@@ -30,6 +44,7 @@ export const store = configureStore({
     movieFavorites: movieFavoriteSlice,
   },
   middleware,
+  
 });
 
 

@@ -38,7 +38,7 @@ export default function PopCorn(): JSX.Element {
     }, 1000);
    }
 
-  const handleDelete = (id:number) => {
+  const handleDelete = (id:typeMovieFavorite) => {
      dispatch({type:constants.DELETE_MOVIE, id})
    }
   return (
@@ -46,7 +46,7 @@ export default function PopCorn(): JSX.Element {
       <section className="container__input-movie">
          <InputMovie /> 
       </section>
-       <MyFavoriteMovie handleDelete={(id:number)=>handleDelete(id)}/> 
+      <MyFavoriteMovie handleDelete={( id  : typeMovieFavorite) => handleDelete( id )}/>
       <TitleMovies title="Popular Movies" />
       <section className="container__overflow">
         {movieList.length > 0 &&

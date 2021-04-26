@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import "../styles/modal.css";
 import { useSelector } from "react-redux";
 import { typeMovieReducer } from "../redux/interfaces/interfaces";
@@ -12,7 +12,6 @@ export default function Detail({ handleDetail, addMovieFavorite }: AppProps) {
   const detailMovie = useSelector(
     (state: any) => state.movieFavorites.saveFavorite
   );
-  
   return (
     <div className="content_modal">
       <div className="modal__movie">

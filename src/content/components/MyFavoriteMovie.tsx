@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { typeMovieReducer,typeMovieFavorite } from "../redux/interfaces/interfaces";
 import "../styles/favorite.css";
@@ -9,6 +9,11 @@ export default function MyFavoriteMovie(props: any) {
   const favorite = useSelector(
     (state: typeMovieReducer) => state.movieFavorites.favorite
   );
+
+  //  useEffect(() => {
+  //   localStorage.setItem("favorites", JSON.stringify(favorite));
+    
+  // }, [favorite])
   const dispatch = useDispatch();
   return (
     <div className="favorite">
@@ -18,7 +23,7 @@ export default function MyFavoriteMovie(props: any) {
         <p className="favorite__p">You haven´t favorired any movies yet</p>
       )}
       <section className="container__movie">
-        {favorite.map((fav:typeMovieFavorite, index):JSX.Element => (
+        {favorite.map((fav:typeMovieFavorite):JSX.Element => (
           <Favorite
             key={fav.id}
             {...fav}

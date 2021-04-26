@@ -5,7 +5,7 @@ export type typeMovieReducer = ReturnType<typeof RootReducer>;
 export type FormElemnt = React.ChangeEvent<HTMLInputElement>;
 
 export interface Imovie {
-  favorite: Array<any>;
+  favorite: Array<any>| any;
   noFavorite: Array<any>;
   saveFavorite: null;
   modal: boolean;
@@ -21,23 +21,36 @@ export interface IgetMovie {
 }
 
 export type AppProps = {
+  id?: number;
   backdrop_path: string;
   handleDetail?: any;
-  poster_path: string;
-};
-
-export type typeMovieFavorite = {
   adult?: boolean;
-  backdrop_path?: string;
   genre_ids?: Array<number>;
-  id?: number;
   original_language: string;
   original_title?: string;
   overview?: string;
   popularity?: number;
   poster_path?: string;
   release_date?: string;
-  title?: string;
+  title: string;
+  video?: boolean;
+  vote_average?: number;
+  vote_count?: number;
+  handleDelete?: any;
+};
+
+export type typeMovieFavorite = {
+  adult?: boolean;
+  backdrop_path?: string;
+  genre_ids?: Array<number>;
+  id?: number|null;
+  original_language: string;
+  original_title?: string;
+  overview?: string;
+  popularity?: number;
+  poster_path?: string;
+  release_date?: string;
+  title: string;
   video?: boolean;
   vote_average?: number;
   vote_count?: number;

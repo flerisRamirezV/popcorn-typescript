@@ -1,5 +1,5 @@
 import * as actionType from "../constants/constants";
-import {Imovie} from '../interfaces/interfaces'
+import {Imovie, typeMovieFavorite} from '../interfaces/interfaces'
 
 const initialState: Imovie = {
   favorite:[],
@@ -15,11 +15,11 @@ export const movieFavorites = (state:Imovie=initialState, action:any):Imovie => 
       console.log("ACYION_MOVIE", action.payload)
       return { ...state, favorite: [...state.favorite, action.payload] };
   
-    case actionType.DELETE_FAVORITE:
-      return {
-        ...state,
-        favorite: state.favorite.filter((fav) => fav.id !== action.payload),
-      };
+    // case actionType.DELETE_FAVORITE:
+    //   return {
+    //     ...state,
+    //     favorite: state.favorite.filter((fav:typeMovieFavorite) => fav.id !== action.payload),
+    //   };
 
     case actionType.SAVE_MOVIE:
       

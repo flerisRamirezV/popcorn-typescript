@@ -1,6 +1,6 @@
 import * as constant from "../constants/constants";
 import RootReducer from "../reducers/index";
-
+ 
 export type typeMovieReducer = ReturnType<typeof RootReducer>;
 export type FormElemnt = React.ChangeEvent<HTMLInputElement>;
 
@@ -85,6 +85,10 @@ export interface IaddFavorite {
   type: typeof constant.ADD_MOVIE_FAVORITE;
 }
 
+export interface IfilterData{
+  type: typeof constant.FAVORITE_MOVIE
+}
+
 export type MoviesTypes =
   | IListMovie
   | IGetmovies
@@ -92,10 +96,24 @@ export type MoviesTypes =
   | ISaveData
   | IdeleteData
   | IsaveFavorite
-  | IaddFavorite;
+  | IaddFavorite
+  |IfilterData
+  ;
 
-export interface TaskActionFavorite extends typeMovieReducer, typeMovieFavorite {
+export interface TaskActionFavorite
+  extends typeMovieReducer,
+    typeMovieFavorite {
   type: MoviesTypes;
   data: typeMovieFavorite;
   id?: number;
+}
+
+export interface ISearchData {
+  name?: string|any;
+  data?: { name: string } | any;
+}
+
+
+export interface ActionSearch extends typeMovieReducer, ISearchData{
+  type:MoviesTypes
 }

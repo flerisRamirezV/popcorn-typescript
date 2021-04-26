@@ -6,16 +6,17 @@ import {
 } from "../../../helpers/requests";
 
 import { filterData } from '../../../redux-toolkit/movieReducer';
+import { AppProps, ISearchData,ActionSearch } from '../../interfaces/interfaces'
 
-function* searchMovies(name: any): Generator<any> {
-  
+function* searchMovies(name: ISearchData): Generator<any> {
   try {
     let query = "";
     if (name.data === "") {
       query = "?";
     } else {
       query = name.data;
-    }
+     }
+  
     let url = `${actionTypes.URL_SEARCH_MOVIE}=${fixedEncodeURIComponent(
       query
     )}&api_key=${actionTypes.API_KEY}`;
@@ -30,6 +31,6 @@ function* searchMovies(name: any): Generator<any> {
 
 
 export function* searchMoviesWatcher():Generator<any> {
-  yield takeLatest(actionTypes.FILTER_MOVIE, searchMovies);
+  yield takeLatest<ActionSearch>(actionTypes.FILTER_MOVIE, searchMovies);
 }
 

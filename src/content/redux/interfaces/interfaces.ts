@@ -1,7 +1,6 @@
 import * as constant from "../constants/constants";
-import RootReducer from "../reducers/index";
- 
-export type typeMovieReducer = ReturnType<typeof RootReducer>;
+import {RootState } from '../../../configureStore'
+export type typeMovieReducer = RootState;
 export type FormElemnt = React.ChangeEvent<HTMLInputElement>;
 
 export interface Imovie {
